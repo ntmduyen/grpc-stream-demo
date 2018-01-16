@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+// Stream service definition.
+service Stream {
+  // We have a method called `GetMessage` which takes
+  // parameter called `Request` and returns the message `Response`
+
+  // The stream keyword is specified before both the request type and response
+  // type to make it as bidirectional streaming RPC method.
+  rpc GetMessage (Request) returns (stream Response) {}
+}
+
+message Request {
+  int64 id = 1;
+}
+
+message Response {
+  int64 id = 1;
+}
